@@ -66,7 +66,7 @@
                     </div>
 
                     <div id="uploaded_section" style="display: none;">
-                        <p style="margin-top: 10px; font-size: 15pt;">Choissisez la promotion, le semestre et le module pour chaque document:</p>
+                        <p style="margin-top: 10px; font-size: 15pt;">Choisissez la promotion, le semestre et le module pour chaque document:</p>
                         <table id="uploaded_table">
                             <thead>
                                 <tr>
@@ -81,9 +81,10 @@
                             <tbody>
                             </tbody>
                         </table>
+                        <button id="upload_validate_button" onclick="saveUploadedFiles()">Valider</button>
                     </div>
                 </div>
-                <div id="recent_files">
+                <div id="recent_files" style="display: none">
                     <p class="p4">Documents récents:</p>
                     <table>
                         <thead>

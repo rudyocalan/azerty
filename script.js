@@ -41,7 +41,10 @@ const MODULES = {
         ]
     ]
 };
+
 var uploadedFiles = {};
+var savedFiles = [];
+
 
 function uploadFiles(event) {
     if (event.target.files.length == 0) {
@@ -227,6 +230,31 @@ function addFileToTable(file) {
 
     var fileYear = fileRow.insertCell(-1);
     fileYear.appendChild(createFileYearSelect(file.name));
+}
+
+function saveUploadedFiles() {
+    for (const fileName in uploadedFiles) {
+        for (const fileInfo in uploadedFiles[fileName]) {
+            if (uploadedFiles[fileName][fileInfo] == '') {
+                alert("Veuillez renseigner toutes les informations pour pouvoir enregistrer les documents.");
+                return;
+            }
+        }
+    }
+
+    for (const fileName in uploadedFiles) {
+        savedFiles.push(uploadedFiles[fileName]);
+    }
+
+    uploadedFiles = {};
+
+    var uploadedTableBodyElement = document.getElementById("uploaded_table").children[1];
+    while (uploadedTableBodyElement.children.length > 0) {
+        uploadedTableBodyElement.children[0].remove();
+    }
+
+    document.getElementById("uploaded_section").style.display = "none";
+
 }
 
 window.addEventListener('load', function () {

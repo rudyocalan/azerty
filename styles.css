@@ -177,3 +177,21 @@ input[type=file] {
     font-size: 15pt;
     position: absolute;
 }
+
+#upload_validate_button {
+    background-color: #525d6c;
+    border: none;
+    color: white;
+    padding: 7px 25px;
+    /* text-align: center; */
+    /* text-decoration: none; */
+    /* display: inline-block; */
+    font-size: 16px;
+    border-radius: 5px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+#upload_validate_button:hover {
+    background-color: #2d333b;
+}
