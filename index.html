@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>efreiCompanion</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"> -->
+        <!-- <script src="script.js"></script> -->
+    </head>
+
+    <body>
+        <div class="grid_wrapper">
+            <ul class="top_nav_bar">
+                <li> <a href="index.html" id="site_name" class="active">efreiCompanion</a></li>
+                <!-- <li>
+                    <a href="index.html" >Accueil</a>
+                </li> -->
+                <li>
+                    <div class="tooltip">
+                        <a class="disabled-link" href="">L1</a>
+                        <span class="tooltiptext">Pas de document disponible</span>
+                    </div>
+                </li>
+                <li><a href="">L2</a></li>
+                <li>
+                    <div class="tooltip">
+                        <a class="disabled-link" href="">L3</a>
+                        <span class="tooltiptext">Pas de document disponible</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="tooltip">
+                        <a class="disabled-link" href="">M1</a>
+                        <span class="tooltiptext">Pas de document disponible</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="tooltip">
+                        <a class="disabled-link" href="">M2</a>
+                        <span class="tooltiptext">Pas de document disponible</span>
+                    </div>
+                </li>
+                <li style="float: right">
+                    <form class="" style="padding: 13px 30px">
+                        <input style="height: 35px; width: 250px; font-size: 16px; border-radius: 8px;" type="search" placeholder=" Chercher un document">
+                        <button id="search-button" type="submit">
+                            <img height="25px" src="search-solid.svg"></button>
+                    </form>
+                </li>
+            </ul>
+
+            <div class="home_description">
+                <p class="p1">Bienvenue sur efreiCompanion</p>
+                <p class="p2">Le partenaire des étudiants EFREI dans la réussite de leurs études.</p>
+                <p class="p3" style="padding-top: 30px;">Vous trouverez ici des documents de cours, projet, DE, CE, TD, et TP répartis en années et semestres. efreiCompanion est un site collaboratif, donc n'hésitez pas à y déposer les documents que vous possédez pour aider vos camarades!</p>
+                <div id="upload_files">
+                    <p class="p4">Déposer des documents:</p>
+
+                    <div id="file_input">
+                        <p class="p5">Cliquez pour choisir un ou plusieurs documents </br> ou </br> Glissez et déposez vos documents ici</p>
+                        <input id="input" type="file" multiple>
+                    </div>
+
+                    <div id="uploaded_section" style="display: unset;">
+                        <p style="margin-top: 10px; font-size: 15pt;">Choissisez la promotion, le semestre et le module pour chaque document:</p>
+                        <table id="uploaded_table">
+                            <thead>
+                                <tr>
+                                    <th>Document</th>
+                                    <th>Type</th>
+                                    <th>Année</th>
+                                    <th>Semestre</th>
+                                    <th>Module</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <select name="year" id="file-year-select">
+                                            <option value="">--Choisissez l'année d'étude--</option>
+                                            <option value="L1">L1</option>
+                                            <option value="L2">L2</option>
+                                            <option value="L3">L3</option>
+                                            <option value="M1">M1</option>
+                                            <option value="M2">M2</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select name="semester" id="file-semester-select">
+                                            <option value="">--Choisissez le semestre d'étude--</option>
+                                            <option value="S3">S3</option>
+                                            <option value="S4">S4</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select name="module" id="file-module-select">
+                                            <option value="">--Choisissez le module--</option>
+                                            <option value="l1">L1</option>
+                                            <option value="l2">L2</option>
+                                            <option value="l3">L3</option>
+                                            <option value="m1">M1</option>
+                                            <option value="m2">M2</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="recent_files">
+                    <p class="p4">Documents récents:</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Company</th>
+                                <th>Contact</th>
+                                <th>Country</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Alfreds Futterkiste</td>
+                                <td>Maria Anders</td>
+                                <td>Germany</td>
+                            </tr>
+                            <tr>
+                                <td>Centro comercial Moctezuma</td>
+                                <td>Francisco Chang</td>
+                                <td>Mexico</td>
+                            </tr>
+                            <tr>
+                                <td>Ernst Handel</td>
+                                <td>Roland Mendel</td>
+                                <td>Austria</td>
+                            </tr>
+                            <tr>
+                                <td>Island Trading</td>
+                                <td>Helen Bennett</td>
+                                <td>UK</td>
+                            </tr>
+                            <tr>
+                                <td>Laughing Bacchus Winecellars</td>
+                                <td>Yoshi Tannamuri</td>
+                                <td>Canada</td>
+                            </tr>
+                            <tr>
+                                <td>Magazzini Alimentari Riuniti</td>
+                                <td>Giovanni Rovelli</td>
+                                <td>Italy</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <ul class="bottom_nav_bar">
+                <li><a href="">Qui sommes-nous ?</a></li>
+            </ul>
+        </div>
+
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+
+</html>
