@@ -56,7 +56,7 @@
             <div class="home_description">
                 <p class="p1">Bienvenue sur efreiCompanion</p>
                 <p class="p2">Le partenaire des étudiants EFREI dans la réussite de leurs études.</p>
-                <p class="p3" style="padding-top: 30px;">Vous trouverez ici des documents de cours, projet, DE, CE, TD, et TP répartis en années et semestres. efreiCompanion est un site collaboratif, donc n'hésitez pas à y déposer les documents que vous possédez pour aider vos camarades!</p>
+                <p class="p3" style="padding-top: 30px;">Vous trouverez ici des documents de cours, projet, DE, CE, TD, et TP répartis en niveaux, semestres et modules. efreiCompanion est un site collaboratif, donc n'hésitez pas à y déposer les documents que vous possédez pour aider vos camarades!</p>
                 <div id="upload_files">
                     <p class="p4">Déposer des documents:</p>
 
@@ -65,50 +65,20 @@
                         <input id="input" type="file" multiple>
                     </div>
 
-                    <div id="uploaded_section" style="display: unset;">
+                    <div id="uploaded_section" style="display: none;">
                         <p style="margin-top: 10px; font-size: 15pt;">Choissisez la promotion, le semestre et le module pour chaque document:</p>
                         <table id="uploaded_table">
                             <thead>
                                 <tr>
                                     <th>Document</th>
                                     <th>Type</th>
-                                    <th>Année</th>
+                                    <th>Niveau d'étude</th>
                                     <th>Semestre</th>
                                     <th>Module</th>
+                                    <th>Année du document</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td>
-                                        <select name="year" id="file-year-select">
-                                            <option value="">--Choisissez l'année d'étude--</option>
-                                            <option value="L1">L1</option>
-                                            <option value="L2">L2</option>
-                                            <option value="L3">L3</option>
-                                            <option value="M1">M1</option>
-                                            <option value="M2">M2</option>
-                                        </select>
-                                    </td>
-                                    <td>
-                                        <select name="semester" id="file-semester-select">
-                                            <option value="">--Choisissez le semestre d'étude--</option>
-                                            <option value="S3">S3</option>
-                                            <option value="S4">S4</option>
-                                        </select>
-                                    </td>
-                                    <td>
-                                        <select name="module" id="file-module-select">
-                                            <option value="">--Choisissez le module--</option>
-                                            <option value="l1">L1</option>
-                                            <option value="l2">L2</option>
-                                            <option value="l3">L3</option>
-                                            <option value="m1">M1</option>
-                                            <option value="m2">M2</option>
-                                        </select>
-                                    </td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
