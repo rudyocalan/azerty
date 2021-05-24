@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>efreiCompanion: L2</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/styles.css">
+        <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"> -->
+    </head>
+
+    <body>
+        <div class="grid_wrapper">
+            <ul class="top_nav_bar">
+                <li> <a href="index.html" id="site_name">efreiCompanion</a></li>
+                <!-- <li>
+                    <a href="index.html" >Accueil</a>
+                </li> -->
+                <li>
+                    <div class="tooltip">
+                        <a class="disabled-link" href="">L1</a>
+                        <span class="tooltiptext">Pas de document disponible</span>
+                    </div>
+                </li>
+                <li><a href="" class="active">L2</a></li>
+                <li>
+                    <div class="tooltip">
+                        <a class="disabled-link" href="">L3</a>
+                        <span class="tooltiptext">Pas de document disponible</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="tooltip">
+                        <a class="disabled-link" href="">M1</a>
+                        <span class="tooltiptext">Pas de document disponible</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="tooltip">
+                        <a class="disabled-link" href="">M2</a>
+                        <span class="tooltiptext">Pas de document disponible</span>
+                    </div>
+                </li>
+                <li style="float: right">
+                    <form class="" style="padding: 13px 30px">
+                        <input style="height: 35px; width: 250px; font-size: 16px; border-radius: 8px;" type="search" placeholder="  Chercher un document">
+                        <button id="search-button" type="submit">
+                            <img height="25px" src="assets/search-solid.svg"></button>
+                    </form>
+                </li>
+            </ul>
+
+            <div class="home_description">
+                <p class="p1">L2</p>
+                <div id="files_list">
+                </div>
+            </div>
+
+            <ul class="bottom_nav_bar">
+                <li><a href="">Qui sommes-nous ?</a></li>
+            </ul>
+        </div>
+
+        <script type="text/javascript" src="js/indexedDB.js"></script>
+        <script type="text/javascript" src="js/script.js"></script>
+        <script type="text/javascript" src="js/L2.js"></script>
+    </body>
+
+</html>
