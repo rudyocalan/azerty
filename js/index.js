@@ -162,7 +162,7 @@ function addFileToTable(file) {
     fileName.innerHTML = file.name;
 
     var fileType = fileRow.insertCell(-1);
-    fileType.innerHTML = file.type;
+    fileType.innerHTML = FILE_TYPES[file.type];
 
     var fileLevel = fileRow.insertCell(-1);
     fileLevel.appendChild(createFileLevelSelect(file.name));

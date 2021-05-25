@@ -1,7 +1,9 @@
 const YEARS = ['L1', 'L2', 'L3', 'M1', 'M2'];
+
 const SEMESTERS = {
     'L2': ['S3', 'S4']
 };
+
 const MODULES = {
     'S3': [
         [
@@ -40,4 +42,18 @@ const MODULES = {
             'Thermodynamique'
         ]
     ]
+};
+
+const FILE_TYPES = {
+    "text/plain": "TXT",
+    "image/jpeg": "JPG",
+    "image/png": "PNG",
+    "application/pdf": "PDF",
+    "application/vnd.ms-powerpoint": "PPT",
+    "application/vnd.openxmlformats-officedocument.presentationml.presentation": "PPTX",
+    "application/msword": "DOC",
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.document": 'DOCX',
+    "application/vnd.ms-excel": "XLS",
+    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": "XLSX",
+    "application/zip": "ZIP"
 };

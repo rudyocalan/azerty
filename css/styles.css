@@ -195,31 +195,70 @@ input[type=file] {
     background-color: #2d333b;
 }
 
-#files_list {
+#module_list {
     padding-top: 20px;
     /* padding-left: 10px; */
     font-weight: bold;
 }
 
-#files_list ul {
+#module_list ul {
     list-style-type: none;
 }
 
-#files_list a {
-    color: #2d333b;
+#module_list a {
     font-size: 17pt;
 }
 
-#files_list a:hover {
+#module_list a:not(#selected_module) {
+    color: #2d333b;
+}
+
+#module_list a:not(#selected_module):hover {
     color: white;
     background-color: #2d333b;
 }
 
+.ul1 {
+    /* padding-left: 10px; */
+}
+
 .ul2 {
-    padding-left: 20px;
+    padding-left: 50px;
 }
 
 .ul3 {
-    padding-left: 20px;
+    padding-left: 50px;
     font-weight: normal;
+}
+
+.ul3 li {
+    padding-top: 10px;
+}
+
+.ul3 li:last-child {
+    padding-bottom: 10px;
+}
+
+.semester_name {
+    font-size: 25pt;
+}
+
+.ue_name {
+    font-size: 17pt;
+}
+
+#central_view {
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+    flex-wrap: wrap;
+}
+
+#file_list {
+    min-width: 50%;
+}
+
+#selected_module {
+    color: white;
+    background-color: #2d333b;
 }
