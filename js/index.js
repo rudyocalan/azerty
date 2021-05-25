@@ -10,7 +10,8 @@ function uploadFiles(event) {
             fileSemester: '',
             fileModule: '',
             fileYear: '',
-            fileName: file.name
+            fileName: file.name,
+            fileUploadDate: Date.now()
         };
         addFileToTable(file);
     }
@@ -207,10 +208,66 @@ function saveUploadedFiles() {
     }
 
     document.getElementById("uploaded_section").style.display = "none";
+
+    showRecentFiles(5);
+}
+
+function showRecentFiles(count) {
+    if (count < 1) {
+        return;
+    }
+
+    var allFiles = getAllFilesFromStore();
+
+    allFiles.onsuccess = function () {
+        var tmp = this.result;
+        tmp.sort((fileA, fileB) => (fileA.fileUploadDate < fileB.fileUploadDate) ? 1 : -1);
+        fillRecentFilesTable(tmp.slice(0, count));
+    };
+}
+
+function fillRecentFilesTable(files) {
+    var table = document.getElementById("recent_files_table").getElementsByTagName("tbody")[0];
+
+    while (table.children.length > 0) {
+        table.children[0].remove();
+    }
+
+    files.forEach(file => {
+        var fileRow = table.insertRow(-1);
+
+        var fileName = fileRow.insertCell(-1);
+        fileName.innerHTML = file.fileName;
+
+        var fileYear = fileRow.insertCell(-1);
+        fileYear.innerHTML = file.fileYear;
+
+        var fileLevel = fileRow.insertCell(-1);
+        fileLevel.innerHTML = file.fileLevel;
+
+        var fileSemester = fileRow.insertCell(-1);
+        fileSemester.innerHTML = file.fileSemester;
+
+        var fileModule = fileRow.insertCell(-1);
+        fileModule.innerHTML = file.fileModule;
+
+        var fileDownload = fileRow.insertCell(-1);
+        var fileLink = document.createElement("a");
+        fileLink.href = URL.createObjectURL(file.fileObject);
+        fileLink.download = file.fileName;
+        fileLink.innerHTML = FILE_TYPES[file.fileObject.type];
+        fileDownload.appendChild(fileLink);
+
+        var fileUploadDate = fileRow.insertCell(-1);
+        var localDate = new Date(file.fileUploadDate);
+        fileUploadDate.innerHTML = localDate.toLocaleString('fr-FR');
+
+    });
 }
 
 var uploadedFiles = {};
 
 window.addEventListener('load', function () {
     document.getElementById("input").onchange = uploadFiles;
+    showRecentFiles(5);
 });

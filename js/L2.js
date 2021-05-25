@@ -89,8 +89,12 @@ function showFiles(files) {
         fileLink.href = URL.createObjectURL(file.fileObject);
         fileLink.download = file.fileName;
         fileLink.innerHTML = FILE_TYPES[file.fileObject.type];
-
         fileDownload.appendChild(fileLink);
+
+
+        var fileUploadDate = fileRow.insertCell(-1);
+        var localDate = new Date(file.fileUploadDate);
+        fileUploadDate.innerHTML = localDate.toLocaleString('fr-FR');
 
     });
 }
