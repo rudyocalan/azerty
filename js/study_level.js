@@ -4,6 +4,11 @@ window.addEventListener( 'load', function () {
     showModuleList();
 } );
 
+/**
+ * Affiche la liste des modules
+ *
+ * @return {undefined} - La fonction ne retourne rien
+ */
 function showModuleList () {
     var divElement = document.getElementById( "module_list" );
 
@@ -63,9 +68,13 @@ function showModuleList () {
     } );
 
     divElement.appendChild( ul1Element );
-
 }
 
+/**
+ * Efface le tableau de fichiers
+ *
+ * @return {undefined} - La fonction ne retourne rien
+ */
 function clearFilesList () {
     var tbody = document.getElementById( "file_list_table" ).getElementsByTagName( "tbody" )[ 0 ];
     while ( tbody.children.length > 0 ) {
@@ -73,7 +82,13 @@ function clearFilesList () {
     }
 }
 
-
+/**
+ * Affiche les fichiers dans le tableau de documents
+ *
+ * @param {Array} files - La liste des fichiers
+ *
+ * @return {undefined} - La fonction ne retourne rien
+ */
 function showFiles ( files ) {
     var table = document.getElementById( "file_list_table" ).getElementsByTagName( "tbody" )[ 0 ];
 
@@ -123,6 +138,13 @@ function showFiles ( files ) {
     } );
 }
 
+/**
+ * Supprime le fichier du tableau des documents
+ *
+ * @param {string} fileName - Le nom du fichier
+ *
+ * @return {undefined} - La fonction ne retourne rien
+ */
 function deleteFileFromTable ( fileName ) {
     var table = document.getElementById( "file_list_table" ).getElementsByTagName( 'tbody' )[ 0 ];
 
@@ -133,6 +155,13 @@ function deleteFileFromTable ( fileName ) {
     }
 }
 
+/**
+ * Affiche tous les documents correspondant au module dans le tableau
+ *
+ * @param {string} module - Le nom du module
+ *
+ * @return {undefined} - La fonction ne retourne rien
+ */
 function showModuleFiles ( module ) {
     clearFilesList();
 
@@ -149,5 +178,4 @@ function showModuleFiles ( module ) {
     };
 
     document.getElementById( "file_list" ).style.display = "unset";
-
 }

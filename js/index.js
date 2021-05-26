@@ -5,6 +5,15 @@ window.addEventListener( 'load', function () {
     showRecentFiles( 5 );
 } );
 
+/**
+ * Garde en mémoire les fichiers que l'utilisateur a sélectionnés dans la variable 'uploadedFiles',
+ * ajoute ces fichiers dans le tableau "Déposer des documents" et
+ * affiche le formulaire utilisateur et le tableau des fichiers téléchargés.
+ *
+ * @param {Event} event - L'évènement ayant enclenché l'appel de cette fonction
+ *
+ * @return {undefined} - La fonction ne retourne rien
+ */
 function uploadFiles ( event ) {
     if ( event.target.files.length == 0 ) {
         return;
@@ -25,10 +34,24 @@ function uploadFiles ( event ) {
     document.getElementById( "uploaded_section" ).style.display = "unset";
 }
 
+/**
+ * Retourne l'élément HTML <tr> auquel appartient l'élément HTML <select>
+ *
+ * @param {HTMLSelectElement} selectElement - L'élément <select> pour lequel le parent <table> est demandé
+ *
+ * @return {HTMLTableRowElement} - L'élément <tr> auquel appartient 'selectElement'
+ */
 function getTableRowFromSelect ( selectElement ) {
     return selectElement.parentElement.parentElement;
 }
 
+/**
+ * Créé et retourne un élément HTML <select> avec une option par défaut
+ *
+ * @param {string} default_option - Le texte de l'option par défaut
+ *
+ * @return {HTMLSelectElement} - L'élément <select> nouvellement créé
+ */
 function createEmptySelect ( default_option ) {
     var selectElement = document.createElement( 'select' );
 
@@ -41,6 +64,12 @@ function createEmptySelect ( default_option ) {
     return selectElement;
 }
 
+/**
+ * Créé et retourne l'élément HTML <select> pour le choix du niveau d'étude
+ * lors du dépot de documents
+ *
+ * @return {HTMLSelectElement} - L'élément <select> nouvellement créé
+ */
 function createFileLevelSelect () {
     var selectElement = createEmptySelect( "--Choisissez le niveau d'étude--" );
     selectElement.onchange = function () {
@@ -64,6 +93,12 @@ function createFileLevelSelect () {
     return selectElement;
 }
 
+/**
+ * Créé et retourne l'élément HTML <select> pour le choix de l'année d'étude
+ * lors du dépot de documents
+ *
+ * @return {HTMLSelectElement} - L'élément <select> nouvellement créé
+ */
 function createFileYearSelect () {
     var selectElement = createEmptySelect( "--Choisissez l'année du document--" );
     selectElement.onchange = function () {
@@ -81,6 +116,14 @@ function createFileYearSelect () {
     return selectElement;
 }
 
+/**
+ * Modifie les options de l'élément HTML <select> pour le choix du niveau d'étude
+ * lors du dépot de documents
+ *
+ * @param {HTMLSelectElement} selectElement - L'élément <select> du choix du niveau d'étude
+ *
+ * @return {undefined} - La fonction ne retourne rien
+ */
 function changeFileLevelSelect ( selectElement ) {
     var fileLevel = selectElement.value;
 
@@ -108,6 +151,14 @@ function changeFileLevelSelect ( selectElement ) {
     changeFileSemesterSelect( semesterSelect );
 }
 
+/**
+ * Modifie les options de l'élément HTML <select> pour le choix du semestre d'étude
+ * lors du dépot de documents
+ *
+ * @param {HTMLSelectElement} selectElement - L'élément <select> du choix du semestre d'étude
+ *
+ * @return {undefined} - La fonction ne retourne rien
+ */
 function changeFileSemesterSelect ( selectElement ) {
     var fileSemester = selectElement.value;
 
@@ -145,6 +196,14 @@ function changeFileSemesterSelect ( selectElement ) {
     changeFileModuleSelect( moduleSelect );
 }
 
+/**
+ * Enregistre le choix du module d'étude sélectionnée par l'utilisateur lors du dépot de documents
+ * dans le fichier correspondant dans la variable 'uploadedFiles'
+ *
+ * @param {HTMLSelectElement} selectElement - L'élément <select> du choix du module d'étude
+ *
+ * @return {undefined} - La fonction ne retourne rien
+ */
 function changeFileModuleSelect ( selectElement ) {
     var fileModule = selectElement.value;
 
@@ -153,6 +212,14 @@ function changeFileModuleSelect ( selectElement ) {
     uploadedFiles[ fileName ].fileModule = fileModule;
 }
 
+/**
+ * Enregistre le choix de l'année du document sélectionnée par l'utilisateur lors du dépot de documents
+ * dans le fichier correspondant dans la variable 'uploadedFiles'
+ *
+ * @param {HTMLSelectElement} selectElement - L'élément <select> du choix de l'année du document
+ *
+ * @return {undefined} - La fonction ne retourne rien
+ */
 function changeFileYearSelect ( selectElement ) {
     var fileYear = selectElement.value;
 
@@ -161,6 +228,13 @@ function changeFileYearSelect ( selectElement ) {
     uploadedFiles[ fileName ].fileYear = fileYear;
 }
 
+/**
+ * Affiche le fichier dans le tableau des documents téléchargés
+ *
+ * @param {File} file - Le fichier téléchargé par l'utilisateur
+ *
+ * @return {undefined} - La fonction ne retourne rien
+ */
 function addFileToTable ( file ) {
     var table = document.getElementById( "uploaded_table" ).getElementsByTagName( 'tbody' )[ 0 ];
     var fileRow = table.insertRow( -1 );
@@ -207,6 +281,15 @@ function addFileToTable ( file ) {
     fileDelete.appendChild( deleteButton );
 }
 
+/**
+ * Enregistre les fichiers téléchargés par l'utilisateur dans la base de données IndexedDB du navigateur,
+ * alerte l'utilisateur si une information manque et empêche l'enregistrement,
+ * efface tous les fichiers du tableau de documents téléchargés,
+ * cache le formulaire et le tableau de documents et
+ * met à jour le tableau de documents récents.
+ *
+ * @return {undefined} - La fonction ne retourne rien
+ */
 function saveUploadedFiles () {
     for ( const fileName in uploadedFiles ) {
         for ( const fileInfo in uploadedFiles[ fileName ] ) {
@@ -246,6 +329,13 @@ function saveUploadedFiles () {
     showRecentFiles( 5 );
 }
 
+/**
+ * Récupère tous les fichiers présents dans la BDD et affiche les 'count' derniers documents téléchargés.
+ *
+ * @param {Number} count - Le nombre de documents récents qui doivent être affichés.
+ *
+ * @return {undefined} - La fonction ne retourne rien
+ */
 function showRecentFiles ( count ) {
     if ( count < 1 ) {
         return;
@@ -260,6 +350,13 @@ function showRecentFiles ( count ) {
     };
 }
 
+/**
+ * Affiche les fichiers dans le tableau des documents récents.
+ *
+ * @param {Array} files - Le nombre de documents récents qui doivent être affichés.
+ *
+ * @return {undefined} - La fonction ne retourne rien
+ */
 function fillRecentFilesTable ( files ) {
     var table = document.getElementById( "recent_files_table" ).getElementsByTagName( "tbody" )[ 0 ];
 
@@ -321,6 +418,15 @@ function fillRecentFilesTable ( files ) {
     } );
 }
 
+/**
+ * Supprime le fichier du tableau des documents téléchargés et
+ * du dictionnaire 'uploadedFiles' et
+ * annule le dépôt de documents s'il reste aucun document téléchargé.
+ *
+ * @param {string} fileName - Le nom du fichier que l'utilisateur veut supprimer
+ *
+ * @return {undefined} - La fonction ne retourne rien
+ */
 function deleteFileFromUploadedFiles ( fileName ) {
     delete uploadedFiles[ fileName ];
     var table = document.getElementById( "uploaded_table" ).getElementsByTagName( 'tbody' )[ 0 ];
@@ -336,6 +442,12 @@ function deleteFileFromUploadedFiles ( fileName ) {
     }
 }
 
+/**
+ * Annule le dépôt de documents en cachant la section de dépôt et rechargant
+ * la page pour libérer les documents téléchargés de la mémoire
+ *
+ * @return {undefined} - La fonction ne retourne rien
+ */
 function cancelUploadedFiles () {
     document.getElementById( "uploaded_section" ).style.display = "none";
     document.location.reload();

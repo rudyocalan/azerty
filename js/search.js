@@ -13,6 +13,14 @@ window.addEventListener( 'load', function () {
     searchAndShowFiles( searchFilter );
 } );
 
+/**
+ * Recherche une chaîne de caractères dans les noms des fichiers de la BDD et
+ * affiche les fichiers correspondant dans le tableau de résultats
+ *
+ * @param {string} searchFilter - Le filtre de recherche
+ *
+ * @return {undefined} - La fonction ne retourne rien
+ */
 function searchAndShowFiles ( searchFilter ) {
     var allFilesRequest = getAllFilesFromStore();
     allFilesRequest.onsuccess = function () {
@@ -26,6 +34,13 @@ function searchAndShowFiles ( searchFilter ) {
     };
 }
 
+/**
+ * Affiche les fichiers dans le tableau de résultats
+ *
+ * @param {Array} files - La liste des fichiers
+ *
+ * @return {undefined} - La fonction ne retourne rien
+ */
 function showFileResults ( files ) {
     var table = document.getElementById( "results_table" ).getElementsByTagName( "tbody" )[ 0 ];
 
