@@ -47,8 +47,8 @@ function createFileLevelSelect () {
         changeFileLevelSelect( this );
     };
 
-    for ( let index = 0; index < YEARS.length; index++ ) {
-        const year = YEARS[ index ];
+    for ( let index = 0; index < STUDY_LEVELS.length; index++ ) {
+        const year = STUDY_LEVELS[ index ];
 
         var optionElement = document.createElement( 'option' );
         optionElement.appendChild( document.createTextNode( year ) );
