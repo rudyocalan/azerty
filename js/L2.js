@@ -96,6 +96,11 @@ function showFiles(files) {
         var localDate = new Date(file.fileUploadDate);
         fileUploadDate.innerHTML = localDate.toLocaleString('fr-FR');
 
+
+        var fileAuthor = fileRow.insertCell(-1);
+        var authorName = file.user.user_firstname + ' ' + file.user.user_lastname + ' (' + file.user.user_class + ' ' + file.user.user_promotion + ')';
+        fileAuthor.innerHTML = authorName;
+
     });
 }
 

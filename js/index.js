@@ -196,7 +196,20 @@ function saveUploadedFiles() {
         }
     }
 
+    var user = {};
+    var user_infos = ["user_firstname", "user_lastname", "user_class", "user_promotion"];
+    for (let index = 0; index < user_infos.length; index++) {
+        const user_info = user_infos[index];
+        var element = document.getElementById(user_info);
+        if (element.value.trim() == "") {
+            alert("Veuillez renseigner toutes les informations pour pouvoir enregistrer les documents.");
+            return;
+        }
+        user[user_info] = element.value.trim();
+    }
+
     for (const fileName in uploadedFiles) {
+        uploadedFiles[fileName]['user'] = user;
         addFileToStore(uploadedFiles[fileName]);
     }
 
@@ -261,6 +274,10 @@ function fillRecentFilesTable(files) {
         var fileUploadDate = fileRow.insertCell(-1);
         var localDate = new Date(file.fileUploadDate);
         fileUploadDate.innerHTML = localDate.toLocaleString('fr-FR');
+
+        var fileAuthor = fileRow.insertCell(-1);
+        var authorName = file.user.user_firstname + ' ' + file.user.user_lastname + ' (' + file.user.user_class + ' ' + file.user.user_promotion + ')';
+        fileAuthor.innerHTML = authorName;
 
     });
 }
