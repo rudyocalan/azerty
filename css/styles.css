@@ -262,3 +262,18 @@ input[type=file] {
     color: white;
     background-color: #2d333b;
 }
+
+#recent_files_table, #results_table {
+    margin-top: 20px;
+}
+
+#search_bar {
+    height: 35px;
+    width: 250px;
+    font-size: 16px;
+    border-radius: 8px;
+}
+
+#search-form {
+    padding: 13px 30px
+}

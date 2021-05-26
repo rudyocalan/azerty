@@ -15,7 +15,7 @@
     <body>
         <div class="grid_wrapper">
             <ul class="top_nav_bar">
-                <li> <a href="index.html" id="site_name" class="active">efreiCompanion</a></li>
+                <li> <a href="index.html" id="site_name">efreiCompanion</a></li>
                 <!-- <li>
                     <a href="index.html" >Accueil</a>
                 </li> -->
@@ -54,39 +54,10 @@
             </ul>
 
             <div class="home_description">
-                <p class="p1">Bienvenue sur efreiCompanion</p>
-                <p class="p2">Le partenaire des étudiants EFREI dans la réussite de leurs études.</p>
-                <p class="p3" style="padding-top: 30px;">Vous trouverez ici des documents de cours, projet, DE, CE, TD, et TP répartis en niveaux, semestres et modules. efreiCompanion est un site collaboratif, donc n'hésitez pas à y déposer les documents que vous possédez pour aider vos camarades!</p>
-                <div id="upload_files">
-                    <p class="p4">Déposer des documents:</p>
-
-                    <div id="file_input">
-                        <p class="p5">Cliquez pour choisir un ou plusieurs documents </br> ou </br> Glissez et déposez vos documents ici</p>
-                        <input id="input" type="file" multiple>
-                    </div>
-
-                    <div id="uploaded_section" style="display: none;">
-                        <p style="margin-top: 10px; font-size: 15pt;">Choisissez la promotion, le semestre et le module pour chaque document:</p>
-                        <table id="uploaded_table">
-                            <thead>
-                                <tr>
-                                    <th>Document</th>
-                                    <th>Format</th>
-                                    <th>Niveau d'étude</th>
-                                    <th>Semestre</th>
-                                    <th>Module</th>
-                                    <th>Année du document</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
-                        <button id="upload_validate_button" onclick="saveUploadedFiles()">Valider</button>
-                    </div>
-                </div>
+                <!-- <p class="p1">Recherche</p> -->
                 <div id="recent_files">
-                    <p class="p4">Documents récents:</p>
-                    <table id="recent_files_table">
+                    <p class="p4">Résultats de la recherche pour: <span id="search_filter"></span></p>
+                    <table id="results_table">
                         <thead>
                             <tr>
                                 <th>Document</th>
@@ -102,6 +73,7 @@
                         </tbody>
                     </table>
                 </div>
+
             </div>
 
             <ul class="bottom_nav_bar">
@@ -111,7 +83,7 @@
 
         <script type="text/javascript" src="js/indexedDB.js"></script>
         <script type="text/javascript" src="js/script.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/search.js"></script>
     </body>
 
 </html>
