@@ -1,7 +1,7 @@
-const YEARS = ['L1', 'L2', 'L3', 'M1', 'M2'];
+const YEARS = [ 'L1', 'L2', 'L3', 'M1', 'M2' ];
 
 const SEMESTERS = {
-    'L2': ['S3', 'S4']
+    'L2': [ 'S3', 'S4' ]
 };
 
 const MODULES = {
