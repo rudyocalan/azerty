@@ -173,6 +173,10 @@ input[type=file] {
     cursor: pointer;
 }
 
+input[type=search], input[type=text], input[type=number] {
+    padding-left: 10px;
+}
+
 .p5 {
     font-size: 15pt;
     position: absolute;
