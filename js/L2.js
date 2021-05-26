@@ -101,7 +101,34 @@ function showFiles(files) {
         var authorName = file.user.user_firstname + ' ' + file.user.user_lastname + ' (' + file.user.user_class + ' ' + file.user.user_promotion + ')';
         fileAuthor.innerHTML = authorName;
 
+        var fileDelete = fileRow.insertCell(-1);
+        fileDelete.style.border = "none";
+        var deleteButton = document.createElement("button");
+        deleteButton.type = "button";
+        deleteButton.classList.add("delete-button");
+        deleteButton.onclick = function () {
+            if (confirm('Êtes-vous sûr(e) de vouloir supprimer "' + file.fileName + '" ?')) {
+                deleteFileFromStore(file.fileName);
+                deleteFileFromTable(file.fileName);
+            }
+        };
+        var deleteButtonImg = document.createElement("img");
+        deleteButtonImg.classList.add("delete-button-img");
+        deleteButtonImg.src = "assets/trash-alt-solid.svg";
+        deleteButton.appendChild(deleteButtonImg);
+        fileDelete.appendChild(deleteButton);
+
     });
+}
+
+function deleteFileFromTable(fileName) {
+    var table = document.getElementById("file_list_table").getElementsByTagName('tbody')[0];
+
+    for (let index = 0; index < table.children.length; index++) {
+        if (table.children[index].cells[0].innerHTML == fileName) {
+            table.children[index].remove();
+        }
+    }
 }
 
 function showModuleFiles(module) {

@@ -33,7 +33,7 @@ ul li a:hover:not(.active) {
 }
 
 ul li a.active {
-    background: linear-gradient( transparent 90%, #08e13e 0%);
+    background: linear-gradient( transparent 90%, #3ea1f7 0%);
 }
 
 .home_description {
@@ -178,22 +178,33 @@ input[type=file] {
     position: absolute;
 }
 
-#upload_validate_button {
-    background-color: #525d6c;
-    border: none;
+#upload_validate_button, #upload_cancel_button {
     color: white;
     padding: 7px 25px;
-    /* text-align: center; */
-    /* text-decoration: none; */
-    /* display: inline-block; */
     font-size: 16px;
     border-radius: 5px;
-    margin-top: 5px;
+    margin-top: 10px;
     cursor: pointer;
 }
 
+#upload_validate_button {
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+
+#upload_cancel_button {
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+
 #upload_validate_button:hover {
-    background-color: #2d333b;
+    background-color: #449d44;
+    border-color: #398439;
+}
+
+#upload_cancel_button:hover {
+    background-color: #c9302c;
+    border-color: #ac2925;
 }
 
 #module_list {
@@ -291,4 +302,14 @@ input[type=file] {
 
 .user_info_input:last-of-type {
     padding-bottom: 10px;
+}
+
+.delete-button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.delete-button-img {
+    height: 20px;
 }

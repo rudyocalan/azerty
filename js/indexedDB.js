@@ -42,3 +42,11 @@ function getAllFilesFromStore() {
 
     return files;
 }
+
+function deleteFileFromStore(fileName) {
+    var db = request.result;
+    var tx = db.transaction("docs", "readwrite");
+    var store = tx.objectStore("docs");
+
+    store.delete(fileName);
+}

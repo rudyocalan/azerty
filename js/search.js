@@ -46,6 +46,23 @@ function showFileResults(files) {
         var fileUploadDate = fileRow.insertCell(-1);
         var localDate = new Date(file.fileUploadDate);
         fileUploadDate.innerHTML = localDate.toLocaleString('fr-FR');
+
+        var fileDelete = fileRow.insertCell(-1);
+        fileDelete.style.border = "none";
+        var deleteButton = document.createElement("button");
+        deleteButton.type = "button";
+        deleteButton.classList.add("delete-button");
+        deleteButton.onclick = function () {
+            if (confirm('Êtes-vous sûr(e) de vouloir supprimer "' + file.fileName + '" ?')) {
+                deleteFileFromStore(file.fileName);
+                document.location.reload();
+            }
+        };
+        var deleteButtonImg = document.createElement("img");
+        deleteButtonImg.classList.add("delete-button-img");
+        deleteButtonImg.src = "assets/trash-alt-solid.svg";
+        deleteButton.appendChild(deleteButtonImg);
+        fileDelete.appendChild(deleteButton);
     });
 }
 
