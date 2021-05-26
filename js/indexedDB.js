@@ -42,31 +42,3 @@ function getAllFilesFromStore() {
 
     return files;
 }
-
-// window.addEventListener('load', function () {
-    // addFileToStore({ fileName: "Screen Shot 2021-03-s10 at 6.12.27 PM.png", s: 's' });
-    // getFileFromStore("Screen Shot 2021-03-s10 at 6.12.27 PM.png");
-// });
-
-// open.onsuccess = function () {
-//     // Start a new transaction
-//     var db = open.result;
-//     var tx = db.transaction("efreiCompanion", "readwrite");
-//     var store = tx.objectStore("efreiCompanion");
-
-//     // Add some data
-//     store.put({ id: 12345, name: { first: "John", last: "Doe" }, age: 42 });
-//     store.put({ id: 67890, name: { first: "Bob", last: "Smith" }, age: 35 });
-
-//     // Query the data
-//     var getJohn = store.get(12345);
-
-//     getJohn.onsuccess = function () {
-//         console.log(getJohn.result.name.first);  // => "John"
-//     };
-
-//     // Close the db when the transaction is done
-//     tx.oncomplete = function () {
-//         db.close();
-//     };
-// };
