@@ -43,7 +43,7 @@
                     </div>
                 </li>
                 <li style="float: right">
-                    <form id="search-form" action="/search.html" method="get">
+                    <form id="search-form" action="search.html" method="get">
                         <input id="search_bar" type="search" placeholder="Chercher un document" name="filter">
                         <button id="search-button" type="submit">
                             <img height="25px" src="assets/search-solid.svg"></button>
@@ -52,26 +52,22 @@
             </ul>
 
             <div class="home_description">
-                <!-- <p class="p1">Recherche</p> -->
-                <div id="recent_files">
-                    <p class="p4">Résultats de la recherche pour: <span id="search_filter"></span></p>
-                    <table id="results_table">
-                        <thead>
-                            <tr>
-                                <th>Document</th>
-                                <th>Année</th>
-                                <th>Niveau d'étude</th>
-                                <th>Semestre</th>
-                                <th>Module</th>
-                                <th>Télécharger</th>
-                                <th>Ajout</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-                </div>
-
+                <p class="p4" id="search_title">Résultats de la recherche pour: <span id="search_filter"></span></p>
+                <table id="results_table">
+                    <thead>
+                        <tr>
+                            <th>Document</th>
+                            <th>Année</th>
+                            <th>Niveau d'étude</th>
+                            <th>Semestre</th>
+                            <th>Module</th>
+                            <th>Télécharger</th>
+                            <th>Ajout</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
             </div>
 
             <ul class="bottom_nav_bar">

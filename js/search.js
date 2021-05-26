@@ -68,14 +68,15 @@ function showFileResults(files) {
 
 window.addEventListener('load', function () {
     const urlParams = new URLSearchParams(window.location.search);
-    var searchFilter = urlParams.get('filter');
+    var searchFilter = urlParams.get('filter').trim();
 
-    if (!searchFilter) {
+    if (!searchFilter || searchFilter == "") {
         searchFilter = "";
+        document.getElementById("search_title").innerHTML = "Tous les documents:";
+    } else {
+        var searchFilterSpan = document.getElementById("search_filter");
+        searchFilterSpan.innerHTML = '"' + searchFilter + '"';
     }
-
-    var searchFilterSpan = document.getElementById("search_filter");
-    searchFilterSpan.innerHTML = '"' + searchFilter + '"';
 
     searchAndShowFiles(searchFilter);
 });
